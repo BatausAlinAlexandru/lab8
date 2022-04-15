@@ -12,7 +12,7 @@ inline RepoSmecher<T>::RepoSmecher() {
 
 template<class T>
 inline RepoSmecher<T>::RepoSmecher(const std::string filename) {
-	if (this->filename == "") {
+	if (filename.empty()) {
 		std::cout << "Pune un nume la fisier.\n";
 	}
 	else {
@@ -63,12 +63,12 @@ void RepoSmecher<T>::deleteElem(const T& elem){
 template<class T>
 void RepoSmecher<T>::loadFromFile()
 {
-	if (!this->filename.empty()) {
+	if (!(this->filename.empty())) {
 		std::ifstream file(this->filename);
 		T element;
 		while (!file.eof()) {
 			file >> element;
-			if (element == T())
+			if (!(element == T()))
 				this->addElem(element);
 		}
 		file.close();

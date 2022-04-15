@@ -69,7 +69,7 @@ bool Tranzactie::operator==(const Tranzactie& tranzactie)
 
 std::ostream& operator<<(std::ostream& os, const Tranzactie& tranzactie)
 {
-	os << tranzactie.zi << tranzactie.suma << tranzactie.tip << tranzactie.descriere;
+	os << tranzactie.zi << " " << tranzactie.suma << " " << tranzactie.tip << " " << tranzactie.descriere;
 	return os;
 }
 
