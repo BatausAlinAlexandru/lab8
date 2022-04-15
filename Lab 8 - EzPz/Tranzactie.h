@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <fstream>
 
 class Tranzactie {
 private:
@@ -25,5 +26,9 @@ public:
 
 	// Operatori :D
 	Tranzactie& operator=(const Tranzactie& tranzactie);
+	bool operator==(const Tranzactie& tranzactie);
+	friend std::ostream& operator<<(std::ostream& os, const Tranzactie& tranzactie);
+	friend std::istream& operator>>(std::istream& is, Tranzactie& tranzactie);
+
 };
 

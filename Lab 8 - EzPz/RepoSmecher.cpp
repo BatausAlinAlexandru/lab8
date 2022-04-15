@@ -1,19 +1,19 @@
+#include <iostream>
 #include <fstream>
+#include "Tranzactie.h"
 #include "RepoSmecher.h"
 
 
 
 template<class T>
 inline RepoSmecher<T>::RepoSmecher() {
-	// Nothing here
 }
 
 
 template<class T>
 inline RepoSmecher<T>::RepoSmecher(const std::string filename) {
 	if (this->filename == "") {
-		/*std::cout << "Pune un nume la fisier.\n";*/
-		continue;
+		std::cout << "Pune un nume la fisier.\n";
 	}
 	else {
 		this->filename = filename;
@@ -63,12 +63,12 @@ void RepoSmecher<T>::deleteElem(const T& elem){
 template<class T>
 void RepoSmecher<T>::loadFromFile()
 {
-	if (this->filename) {
+	if (!this->filename.empty()) {
 		std::ifstream file(this->filename);
 		T element;
 		while (!file.eof()) {
 			file >> element;
-			if (!element == T())
+			if (element == T())
 				this->addElem(element);
 		}
 		file.close();
@@ -77,10 +77,13 @@ void RepoSmecher<T>::loadFromFile()
 
 template<class T>
 void RepoSmecher<T>::saveToFile() {
-	if (this->filename) {
+	if (!this->filename.empty()) {
 		std::ofstream file(this->filename);
 		for (int i = 0; i < this->vector.size(); i++)
 			file << this->vector[i] << std::endl;
 	}
 };
+
+
+template class RepoSmecher<Tranzactie>;
 

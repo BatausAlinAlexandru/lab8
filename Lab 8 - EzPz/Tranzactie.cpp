@@ -60,5 +60,21 @@ Tranzactie& Tranzactie::operator=(const Tranzactie& tranzactie) {
 	if (this != &tranzactie)
 		this->setZi(tranzactie.zi), this->setSuma(tranzactie.suma), this->setTip(tranzactie.tip), this->setDescriere(tranzactie.descriere);
 	return *this;
-};
+}
+bool Tranzactie::operator==(const Tranzactie& tranzactie)
+{
+	return ((this->zi == tranzactie.zi) && (this->suma == tranzactie.suma) && (this->tip == tranzactie.tip));
+}
+;
 
+std::ostream& operator<<(std::ostream& os, const Tranzactie& tranzactie)
+{
+	os << tranzactie.zi << tranzactie.suma << tranzactie.tip << tranzactie.descriere;
+	return os;
+}
+
+std::istream& operator>>(std::istream& is, Tranzactie& tranzactie)
+{
+	is >> tranzactie.zi >> tranzactie.suma >> tranzactie.tip >> tranzactie.descriere;
+	return is;
+}

@@ -4,5 +4,5 @@
 #include "Service.h"
 int main() {
 	RepoSmecher<Tranzactie> repo("alin.txt");
-	/*Service service(repo);*/
+	Service service(repo);
 }

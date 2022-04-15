@@ -1,6 +1,6 @@
 #include "Service.h"
 
-Service::Service(RepoSmecher<Tranzactie>& repo) : Repo(repo) {
+Service::Service(RepoSmecher<Tranzactie>& repo) : repo(repo) {
 }
 
 Service::~Service() {
