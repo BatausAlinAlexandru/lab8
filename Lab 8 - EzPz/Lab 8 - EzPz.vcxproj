@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="Lab 8 - EzPz.cpp" />
     <ClCompile Include="Meniu.cpp" />
-    <ClCompile Include="RepoSmecher.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="Tranzactie.cpp" />
   </ItemGroup>

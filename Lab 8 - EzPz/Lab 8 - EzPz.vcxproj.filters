@@ -21,9 +21,6 @@
     <ClCompile Include="Meniu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RepoSmecher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tranzactie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

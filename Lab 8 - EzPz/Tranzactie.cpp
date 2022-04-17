@@ -1,5 +1,5 @@
 #include "Tranzactie.h"
-
+#include <sstream>
 Tranzactie::Tranzactie() {
 	this->zi = 0;
 	this->suma = 0;
@@ -64,17 +64,27 @@ Tranzactie& Tranzactie::operator=(const Tranzactie& tranzactie) {
 bool Tranzactie::operator==(const Tranzactie& tranzactie)
 {
 	return ((this->zi == tranzactie.zi) && (this->suma == tranzactie.suma) && (this->tip == tranzactie.tip));
-}
-;
+};
 
 std::ostream& operator<<(std::ostream& os, const Tranzactie& tranzactie)
 {
-	os << tranzactie.zi << " " << tranzactie.suma << " " << tranzactie.tip << " " << tranzactie.descriere;
+	if (tranzactie.descriere.empty())
+		os << tranzactie.zi << " " << tranzactie.suma << " " << tranzactie.tip << " ";
+	else
+		os << tranzactie.zi << " " << tranzactie.suma << " " << tranzactie.tip << " " << tranzactie.descriere;
 	return os;
 }
-
+#include <iostream>
 std::istream& operator>>(std::istream& is, Tranzactie& tranzactie)
 {
-	is >> tranzactie.zi >> tranzactie.suma >> tranzactie.tip >> tranzactie.descriere;
+	std::string descrierea_mea;
+	is >> tranzactie.zi >> tranzactie.suma >> tranzactie.tip;
+	std::getline(is, descrierea_mea);
+	if (descrierea_mea[0] == ' ') {
+		descrierea_mea.erase(std::remove(descrierea_mea.begin(), descrierea_mea.begin() + 1, ' '), descrierea_mea.begin() + 1);
+	}
+	tranzactie.descriere = descrierea_mea;
+	std::cout << descrierea_mea << std::endl;
+
 	return is;
 }
